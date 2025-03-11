@@ -7,6 +7,7 @@ This uses the amazing merging framework sd-mecha by ljleb. Be sure to show him y
 # Create and activate a venv (optional)
 
 python3 -m venv venv
+
 source venv/bin/activate
 
 # How to Install
