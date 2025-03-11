@@ -38,4 +38,5 @@ python merge.py --checkpoint-folder "/path/to/checkpoint_folder" --output-folder
 
 # Current limitations
 
+Only works on SD 1.5 for now. Will add more support later.
 There seems to be a problem when using GPU/CUDA merging, so hardcoded it to CPU for now.
