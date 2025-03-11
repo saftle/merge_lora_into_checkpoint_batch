@@ -1,3 +1,7 @@
+# Intro
+
+Ever wanted to bulk merge the same LoRA into 1000s of checkpoints!?! Now you can! Why? Because!
+
 This uses the amazing merging framework sd-mecha by ljleb. Be sure to show him your support and to join his discord community!: https://github.com/ljleb/sd-mecha
 
 # Create and activate a venv (optional)
