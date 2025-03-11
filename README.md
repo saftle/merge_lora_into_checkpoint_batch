@@ -15,10 +15,17 @@ python merge.py --checkpoint-folder "/path/to/checkpoint_folder" --output-folder
 
 # Command line arguments
 --config (sd-mecha Model configuration sd1-ldm, sd1-supermerger_blocks, sd1-kohya)
+
 --checkpoint-folder
+
 --output-folder
+
 --lora-path
+
 --lora-alpha (Alpha for LoRA merging)
+
 --debug (Enable detailed debugging)
+
 --debug-keys (Print all keys in debugging)
+
 --skip-cleanup (Skip temporary file cleanup)
