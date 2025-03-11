@@ -110,10 +110,10 @@ def compare_models(model1_info, model2_info, name1="Model1", name2="Model2", max
 # Parse command line arguments
 parser = argparse.ArgumentParser(description='Merge SD models with LoRA with debugging')
 parser.add_argument('--config', type=str, default='sd1-ldm',
-                    help='Model configuration (sd1-ldm, sd1-supermerger_blocks, sd1-kohya, sd1-ldm-complete)')
-parser.add_argument('--checkpoint-folder', type=str, required=True, help='Enable detailed debugging')
-parser.add_argument('--output-folder', type=str, required=True, help='Enable detailed debugging')
-parser.add_argument('--lora-path', type=str, required=True, help='Enable detailed debugging')
+                    help='Model configuration (sd1-ldm, sd1-supermerger_blocks, sd1-kohya)')
+parser.add_argument('--checkpoint-folder', type=str, required=True)
+parser.add_argument('--output-folder', type=str, required=True)
+parser.add_argument('--lora-path', type=str, required=True)
 parser.add_argument('--lora-alpha', type=float, default=1, required=True, help='Alpha for LoRA merging')
 parser.add_argument('--debug', action='store_true', help='Enable detailed debugging')
 parser.add_argument('--debug-keys', action='store_true', help='Print all keys in debugging')
@@ -257,8 +257,8 @@ for checkpoint_file in all_safetensors_files:
             merge_dtype=None,
             output_device=None,
             output_dtype=None,
-            threads=os.cpu_count(),  # Use fewer CPU cores
-            total_buffer_size=2 ** 24,  # Smaller buffer
+            threads=os.cpu_count(),
+            total_buffer_size=2 ** 24,
             strict_weight_space=False,
             output=final_output_path,
         )
