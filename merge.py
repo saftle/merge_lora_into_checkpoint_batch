@@ -204,6 +204,7 @@ for ckpt_file in ckpt_files:
         print(f"Creating merge recipe...")
         diff = diff | sd_mecha.exchange_ema(diff)
         recipe = sd_mecha.add_difference(checkpoint, diff, alpha=args.lora_alpha) | checkpoint
+        recipe = recipe.to(dtype=sd_mecha.get_dtype(checkpoint))
         
         print(f"Merging on CPU...")
         sd_mecha.merge(
@@ -211,11 +212,12 @@ for ckpt_file in ckpt_files:
             merge_device="cpu",
             merge_dtype=None,
             output_device=None,
-            output_dtype=torch.float16,
+            output_dtype=None,
             threads=os.cpu_count(),
             total_buffer_size=2 ** 24,
-            strict_weight_space=False,
             output=final_output_path,
+            omit_ema=False,
+            omit_extra_keys=False,
         )
         
         print(f"✓ Successfully saved merged model to {final_output_path}")
@@ -276,6 +278,7 @@ for st_file in safetensors_files:
         print(f"Creating merge recipe...")
         diff = diff | sd_mecha.exchange_ema(diff)
         recipe = sd_mecha.add_difference(checkpoint, diff, alpha=args.lora_alpha) | checkpoint
+        recipe = recipe.to(dtype=sd_mecha.get_dtype(checkpoint))
         
         print(f"Merging on CPU...")
         sd_mecha.merge(
@@ -283,11 +286,12 @@ for st_file in safetensors_files:
             merge_device="cpu",
             merge_dtype=None,
             output_device=None,
-            output_dtype=torch.float16,
+            output_dtype=None,
             threads=os.cpu_count(),
             total_buffer_size=2 ** 24,
-            strict_weight_space=False,
             output=final_output_path,
+            omit_ema=False,
+            omit_extra_keys=False,
         )
         
         print(f"✓ Successfully saved merged model to {final_output_path}")
