@@ -1,4 +1,4 @@
-git+https://github.com/ljleb/sd-mecha.git@rc4#egg=sd-mecha
+git+https://github.com/ljleb/sd-mecha.git
 torch
 safetensors
 pytorch_lightning
