@@ -218,7 +218,6 @@ for ckpt_file in ckpt_files:
             output=final_output_path,
             omit_ema=False,
             omit_extra_keys=False,
-            alias_extra_keys=False,
         )
         
         print(f"✓ Successfully saved merged model to {final_output_path}")
@@ -293,7 +292,6 @@ for st_file in safetensors_files:
             output=final_output_path,
             omit_ema=False,
             omit_extra_keys=False,
-            alias_extra_keys=False,
         )
         
         print(f"✓ Successfully saved merged model to {final_output_path}")
